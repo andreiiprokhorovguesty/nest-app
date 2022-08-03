@@ -6,11 +6,15 @@ import EmployerRepository from './employer.repository';
 export default class EmployerService {
   constructor(private readonly employerRepository: EmployerRepository) {}
 
-  getAll(): Employer[] {
+  async getAll(): Promise<Employer[]> {
     return this.employerRepository.getAll();
   }
 
-  getById(id: number): Employer {
-    return this.employerRepository.getById(id);
+  async create(employer): Promise<Employer> {
+    return this.employerRepository.create(employer);
   }
+
+  // getById(id: number): Employer {
+  //   return this.employerRepository.getById(id);
+  // }
 }
