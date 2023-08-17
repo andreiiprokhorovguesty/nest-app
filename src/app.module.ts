@@ -17,5 +17,6 @@ import { UserModule } from './users/user.module';
     }),
     ConfigModule.forRoot({ isGlobal: true }),
   ],
+  controllers: [MyControllerController],
 })
 export class AppModule {}

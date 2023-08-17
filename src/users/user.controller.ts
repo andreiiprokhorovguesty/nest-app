@@ -1,10 +1,7 @@
 import {
-  Body,
   Controller,
   Get,
-  Param,
-  ParseIntPipe,
-  Post,
+  VERSION_NEUTRAL,
 } from '@nestjs/common';
 import { ModuleRef } from '@nestjs/core';
 import { UserDto } from './user';
@@ -21,15 +18,5 @@ export default class UserController {
   @Get()
   async getAll(): Promise<UserDto[]> {
     return this.userService.getAll();
-  }
-
-  @Get(':id')
-  async getById(@Param('id', ParseIntPipe) id: number): Promise<UserDto> {
-    return this.userService.getById(id);
-  }
-
-  @Post()
-  async addUser(@Body() user: UserDto): Promise<UserDto> {
-    return this.userService.create(user);
   }
 }
